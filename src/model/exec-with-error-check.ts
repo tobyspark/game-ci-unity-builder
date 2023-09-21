@@ -32,7 +32,7 @@ export async function execWithErrorCheck(
 
   if (gameciMatch) {
     const quote =
-      result.stdout.match(/^GAME_CI_STEP_SUMMARY.*$/gm)?.join('\n') ?? '<No GAME_CI_STEP_SUMMARY messages found>';
+      result.stdout.match(/^GAME_CI_STEP_SUMMARY.*$/gm)?.join('\n\n') ?? '<No GAME_CI_STEP_SUMMARY messages found>';
     await summary.addHeading('Build Results').addQuote(quote).write();
 
     return result.exitCode;
